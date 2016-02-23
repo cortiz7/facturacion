@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>YORISlAB</title>
+	{% load static from staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<header class="cabecera">
+		<div class="row row__space__between">
+			<span class="logo"><a href="{% url 'main:home' %}">MIS FACTURAS</a></span>
+			{% if user.is_authenticated %}			    
+			    <ul class="menu">
+					<li class="menu__item">Hola {{ user.username }}</li>
+			    	<li class="menu__item"><a href="{% url 'users:logout' %}">Cerrar Sesión</a></li>	      
+		    	</ul>
+			{% else %}
+				<ul class="menu">
+			    	<li class="menu__item"><a href="{% url 'users:login' %}">Login</a></li>
+			      	<li class="menu__item"><a href="{% url 'users:register' %}">Registrarse</a></li>
+		    	</ul>		    			
+			{% endif %}
+		    
+		</div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+   	<footer class="footer">
+    	<div class="contenedor">
+        	<hr class="footer__linea">
+        	<span class="footer__texto">Proyecto realizado por COA</span>
+      	</div>
+    </footer>
+
+</body>
+</html>

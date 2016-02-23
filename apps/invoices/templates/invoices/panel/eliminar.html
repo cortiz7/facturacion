@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="page-header">
+            <h4>
+                <a href="{% url 'main:home' %}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Regresar
+                </a>
+                <strong>Eliminar Factura</strong>
+            </h4>
+        </div><!-- page-header -->
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+        <form role="form" action="{% url 'invoice_app:eliminar' invoice.id %}" method="POST">{% csrf_token %}
+            <p class="">¿Desea eliminar la factura Numero:"{{ invoice.number }}"?</p>
+
+            <input type="submit" value="Sí" class="btn btn-danger"> 
+            <a href="{% url 'main:home' %}" class="btn btn-default">No</a>
+        </form>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}

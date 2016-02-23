@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="page-header">
+            <h4>
+                <a href="{% url 'main:home' %}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Regresar
+                </a>
+                <strong>Crear Factura</strong>
+            </h4>
+        </div><!-- page-header -->
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+                <form role="form" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                    <p class="lead"><span class="glyphicon glyphicon-info-sign"></span> Edita factura.</p>
+                    {{ form.as_p }}
+                     <button type="submit">Guardar</button>
+                
+                </form>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}

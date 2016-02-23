@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="page-header">
+            <h4>
+                <a href="{% url 'main:home' %}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Regresar
+                </a>
+                <strong>Detalle Factura</strong>
+            </h4>
+        </div><!-- page-header -->
+
+        <div class="row">            
+            <div class="col-md-12">
+              <section class="principal">
+        <div class="contenedor">
+            <h1 class="principal__titulo">Numero: {{ object.number }}</h1>
+            <p class="principal__subtitulo">Fecha: {{ object.date }}</p>
+            <p class="principal__subtitulo">Cliente: {{ object.cliente }}</p>
+            <p class="principal__subtitulo">Total: {{ object.total }}</p>
+        </div>
+    </section>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}
